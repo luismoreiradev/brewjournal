@@ -45,6 +45,23 @@ function validateUser(req,res,next){
 }
 app.validateUser = validateUser;
 
+// Add headers
+app.use(function (req, res, next) {
+    // Website you wish to allow to connect
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    // Request methods you wish to allow
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    next();
+});
+
+app.options("/*", function(req,res,next){
+ res.header("Access-Control-Allow-Origin", "*");
+ res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+ res.header("Access-Control-Allow--Headers", "Content-Type, Authorization, Content-Length, X-Requested-With, x-access-token");
+ res.send(200)
+})
+
+
 
 // error handler
 app.use(function(err, req, res, next) {
