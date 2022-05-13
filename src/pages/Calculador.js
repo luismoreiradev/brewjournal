@@ -25,7 +25,9 @@ setAllGrains(prevVal=>{return [...prevVal,granoIngresado]})
     <h1>Brewery Calculator</h1>
   <InputGranos newGrain={newGrain} newVolums={newVolums}/>
    <Granos allGrains={allGrains} volumenes={volumenes} />
+   <div><button>guardar receta</button></div>
     </div>
+    
   );
 }
 

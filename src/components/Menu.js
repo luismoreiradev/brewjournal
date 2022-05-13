@@ -6,7 +6,7 @@ function Menu() {
             <ul>
                 <li><Link to={"/Calculador"}>Calculador</Link></li>
                 <li><Link to={"/"}>Home</Link></li>
-                <li><Link to={"/diario"}>Diario</Link></li>
+                <li><Link to={"/recetas"}>Recetas</Link></li>
             </ul>
         </div>
      );
