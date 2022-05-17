@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import InputGranos from '../components/InputGranos';
 import Granos from '../components/Granos';
+const axios = require('axios');
 
 
 function Calculador() {
@@ -15,7 +16,23 @@ function newVolums(volums) {
   
 
   function newGrain(granoIngresado){
-setAllGrains(prevVal=>{return [...prevVal,granoIngresado]})  
+setAllGrains(prevVal=>{return [...prevVal,granoIngresado]}) 
+ 
+  }
+  console.log(allGrains);
+
+  function guardarReceta() {
+     
+    axios.post("http://localhost:3000/recetas", {
+      titulo:"hardcoded",
+      grano1:"hardcoded",
+      cantidadGrano1:99999,
+      levadura:"hardcoded"
+        
+  })
+   .then(function (response) {
+    console.log(response.data);
+  })
   }
 
  
@@ -25,7 +42,7 @@ setAllGrains(prevVal=>{return [...prevVal,granoIngresado]})
     <h1>Brewery Calculator</h1>
   <InputGranos newGrain={newGrain} newVolums={newVolums}/>
    <Granos allGrains={allGrains} volumenes={volumenes} />
-   <div><button>guardar receta</button></div>
+   <div><button onClick={guardarReceta}>guardar receta</button></div>
     </div>
     
   );
