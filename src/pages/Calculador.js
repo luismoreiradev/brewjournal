@@ -19,14 +19,14 @@ function newVolums(volums) {
 setAllGrains(prevVal=>{return [...prevVal,granoIngresado]}) 
  
   }
-  console.log(allGrains);
 
-  function guardarReceta() {
+  
+function guardarReceta() {
      
     axios.post("http://localhost:3000/recetas", {
       titulo:"hardcoded",
       grano1:"hardcoded",
-      cantidadGrano1:99999,
+      cantidadGrano1:777777,
       levadura:"hardcoded"
         
   })
@@ -35,8 +35,12 @@ setAllGrains(prevVal=>{return [...prevVal,granoIngresado]})
   })
   }
 
- 
-
+ let nombreGrano = allGrains.map(a => a.nombreGrano);
+ let nombreLupulo = allGrains.map(a => a.nombreLupulo);
+ let cantidadGrano = allGrains.map(a => a.cantidadGrano);
+ let cantidadLupulo = allGrains.map(a => a.cantidadLupulo);
+ console.log(nombreGrano, nombreLupulo,cantidadGrano,cantidadLupulo);
+  
   return (    
     <div>
     <h1>Brewery Calculator</h1>
