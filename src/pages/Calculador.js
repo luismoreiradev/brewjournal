@@ -25,7 +25,8 @@ function guardarReceta() {
      
     axios.post("http://localhost:3000/recetas", {
       titulo:"hardcoded",
-      grano1:"hardcoded",
+      grano1:nombreGrano[0],
+      grano2:nombreGrano[1],
       cantidadGrano1:777777,
       levadura:"hardcoded"
         
@@ -39,7 +40,7 @@ function guardarReceta() {
  let nombreLupulo = allGrains.map(a => a.nombreLupulo);
  let cantidadGrano = allGrains.map(a => a.cantidadGrano);
  let cantidadLupulo = allGrains.map(a => a.cantidadLupulo);
- console.log(nombreGrano, nombreLupulo,cantidadGrano,cantidadLupulo);
+
   
   return (    
     <div>
