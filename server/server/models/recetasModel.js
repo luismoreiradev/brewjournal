@@ -2,10 +2,10 @@ const mongoose = require("../bin/mongodb");
 
 const recetasSchema= new mongoose.Schema({
     titulo:{type:String,
-    required:true,
+    /*required:true,*/
     minlength:3},
     grano1:{type:String,
-    required:true,
+    /*required:true,*/
     minlength:2},
     cantidadGrano1:Number,
      grano2:String,
@@ -33,7 +33,7 @@ const recetasSchema= new mongoose.Schema({
     lupulo6:String,
     cantidadLupulo6:Number,
     levadura:{type:String,
-                required:true}
+               /*required:true*/}
 });
 
 module.exports =mongoose.model("recetas", recetasSchema)

@@ -19,16 +19,60 @@ function newVolums(volums) {
 setAllGrains(prevVal=>{return [...prevVal,granoIngresado]}) 
  
   }
-
+/*
+  let indexGrano=0
   
-function guardarReceta() {
-     
-    axios.post("http://localhost:3000/recetas", {
-      titulo:"hardcoded",
+
+  function bla(){
+ 
+nombreGrano.forEach(element => {
+    let grain="grano"
+    let grano
+  if (element.length > 0) {
+    indexGrano++
+    grano=grain.concat(indexGrano)
+    
+    return grano
+  }else{
+    console.log(" no hay grano");
+  }
+});
+  }
+  */
+
+
+function guardarReceta(grano) {
+ 
+ 
+    axios.post("http://localhost:3000/recetas",  {
+      titulo:allGrains.titulo,
       grano1:nombreGrano[0],
       grano2:nombreGrano[1],
-      cantidadGrano1:777777,
-      levadura:"hardcoded"
+      grano3:nombreGrano[2],
+      grano4:nombreGrano[3],
+      grano5:nombreGrano[4],
+      grano6:nombreGrano[5],
+      grano7:nombreGrano[6],
+      cantidadGrano1:cantidadGrano[0],
+      cantidadGrano2:cantidadGrano[1],
+      cantidadGrano3:cantidadGrano[2],
+      cantidadGrano4:cantidadGrano[3],
+      cantidadGrano5:cantidadGrano[4],
+      cantidadGrano6:cantidadGrano[5],
+      cantidadGrano7:cantidadGrano[6],
+      lupulo1:nombreLupulo[0],
+      lupulo2:nombreLupulo[1],
+      lupulo3:nombreLupulo[2],
+      lupulo4:nombreLupulo[3],
+      lupulo5:nombreLupulo[4],
+      lupulo6:nombreLupulo[5],
+      cantidadLupulo1:cantidadLupulo[0],
+      cantidadLupulo2:cantidadLupulo[1],
+      cantidadLupulo3:cantidadLupulo[2],
+      cantidadLupulo4:cantidadLupulo[3],
+      cantidadLupulo5:cantidadLupulo[4],
+      cantidadLupulo6:cantidadLupulo[5],
+      levadura:allGrains.levadura
         
   })
    .then(function (response) {

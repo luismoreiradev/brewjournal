@@ -14,8 +14,10 @@ function Granos(props) {
     if(volumenes.newBatchSize === 0){
       coeficienteConversionVolumen=1
     }else{coeficienteConversionVolumen=volumenes.newBatchSize/volumenes.originalBatchSize}
+   
+    /*
 console.log(coeficienteConversionVolumen);
-
+*/
 
   /*
   let coeficienteConversionVolumen 
