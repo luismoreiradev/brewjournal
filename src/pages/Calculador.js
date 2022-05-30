@@ -19,32 +19,55 @@ function newVolums(volums) {
 setAllGrains(prevVal=>{return [...prevVal,granoIngresado]}) 
  
   }
-/*
-  let indexGrano=0
-  
 
-  function bla(){
- 
-nombreGrano.forEach(element => {
-    let grain="grano"
+
+  let nombreGrano = allGrains.map(a => a.nombreGrano);
+ let nombreLupulo = allGrains.map(a => a.nombreLupulo);
+ let cantidadGrano = allGrains.map(a => a.cantidadGrano);
+ let cantidadLupulo = allGrains.map(a => a.cantidadLupulo);
+
+  let indexGrano=0 
+ let grain="grano"
     let grano
+
+     let indexLupulo=0 
+ let hop="lupulo"
+    let lupulo
+    let dataForDataBase={}
+
+  function bla(){ 
+nombreGrano.forEach(element => {   
   if (element.length > 0) {
     indexGrano++
     grano=grain.concat(indexGrano)
-    
-    return grano
-  }else{
+   dataForDataBase[grano]=element   
+    console.log(dataForDataBase);
+  }  
+  else{
     console.log(" no hay grano");
   }
 });
+
+nombreLupulo.forEach(element => {   
+  if (element.length > 0) {
+    indexLupulo++
+    lupulo=hop.concat(indexLupulo)
+   dataForDataBase[lupulo]=element   
+    console.log(dataForDataBase);
+  }  
+  else{
+    console.log(" no hay lupulo");
   }
-  */
+});
 
 
-function guardarReceta(grano) {
- 
- 
-    axios.post("http://localhost:3000/recetas",  {
+  }
+  bla()
+
+
+
+function guardarReceta() {
+     axios.post("http://localhost:3000/recetas", /*  {
       titulo:allGrains.titulo,
       grano1:nombreGrano[0],
       grano2:nombreGrano[1],
@@ -74,16 +97,13 @@ function guardarReceta(grano) {
       cantidadLupulo6:cantidadLupulo[5],
       levadura:allGrains.levadura
         
-  })
+  }*/)
    .then(function (response) {
-    console.log(response.data);
+    console.log(response.data,"data guardada");
   })
   }
 
- let nombreGrano = allGrains.map(a => a.nombreGrano);
- let nombreLupulo = allGrains.map(a => a.nombreLupulo);
- let cantidadGrano = allGrains.map(a => a.cantidadGrano);
- let cantidadLupulo = allGrains.map(a => a.cantidadLupulo);
+ 
 
   
   return (    
