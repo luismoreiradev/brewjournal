@@ -8,6 +8,15 @@ function Calculador() {
 
   const [allGrains, setAllGrains]=useState([])
 const [volumenes, setVolumenes]=useState({})
+const [multiplo, setMultiplo]=useState(1)
+
+function bla(conversor){
+
+  setMultiplo(conversor)
+}
+console.log(multiplo);
+
+
 
 function newVolums(volums) {
   setVolumenes(volums)
@@ -61,7 +70,7 @@ function setDataForDB(){
           if (element.length > 0) {
             indexCantidadGrano++
             granoCantidad=grainQuantity.concat(indexCantidadGrano)
-          dataForDataBase[granoCantidad]=element   
+          dataForDataBase[granoCantidad]=element * multiplo
             
           }  
           
@@ -81,7 +90,7 @@ function setDataForDB(){
           if (element.length > 0) {
             indexCantidadLupulo++
             lupuloCantidad=hopQuantity.concat(indexCantidadLupulo)
-          dataForDataBase[lupuloCantidad]=element   
+          dataForDataBase[lupuloCantidad]=element  * multiplo 
             
           }  
         
@@ -105,7 +114,7 @@ function guardarReceta() {
     <div>
     <h1>Brewery Calculator</h1>
   <InputGranos newGrain={newGrain} newVolums={newVolums}/>
-   <Granos allGrains={allGrains} volumenes={volumenes} />
+   <Granos allGrains={allGrains} volumenes={volumenes} bla={bla} />
    <div><button onClick={guardarReceta}>guardar receta</button></div>
     </div>
     

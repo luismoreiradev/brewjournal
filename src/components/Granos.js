@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 function Granos(props) {
     const granos = props.allGrains
     const volumenes= props.volumenes
+   const bla=props.bla
     
     const [unidadDeConversion, setUnidadDeConversion]=useState({multiploGranos:1,multiploLupulo:1})
     const [unidadOriginal, setUnidadOriginal]= useState({unidadOriginalGranos:String, unidadOriginalLupulos:String})
@@ -47,6 +48,7 @@ console.log(coeficienteConversionVolumen);
       setUnidadDeConversion({multiploGranos:2.20462, multiploLupulo:0.0352733686})
       setUnidadOriginal({unidadOriginalGranos:"lbs", unidadOriginalLupulos:"oz"})      
     } 
+    
   }  
     
   return (
@@ -85,10 +87,11 @@ console.log(coeficienteConversionVolumen);
   {conversorEngaged ? null : <div><h3>Convertir a:</h3>
   <button onClick={convertirUnidades} name="kg">KG</button>
   <button onClick={convertirUnidades} name="lbs">LBS</button>
+  
   </div> 
   }
 
-
+<button onClick={()=>bla(unidadDeConversion.multiploGranos)}>bla</button>
   </div>
   
   );
