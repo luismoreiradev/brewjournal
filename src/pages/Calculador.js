@@ -10,7 +10,7 @@ function Calculador() {
 const [volumenes, setVolumenes]=useState({})
 const [multiplo, setMultiplo]=useState(1)
 
-function bla(conversor){
+function factorConversionUnidades(conversor){
 
   setMultiplo(conversor)
 }
@@ -114,7 +114,7 @@ function guardarReceta() {
     <div>
     <h1>Brewery Calculator</h1>
   <InputGranos newGrain={newGrain} newVolums={newVolums}/>
-   <Granos allGrains={allGrains} volumenes={volumenes} bla={bla} />
+   <Granos allGrains={allGrains} volumenes={volumenes} factorConversionUnidades={factorConversionUnidades} />
    <div><button onClick={guardarReceta}>guardar receta</button></div>
     </div>
     
