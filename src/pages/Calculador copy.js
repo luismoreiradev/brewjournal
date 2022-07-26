@@ -22,7 +22,6 @@ function newVolums(volums) {
 setAllGrains(prevVal=>{return [...prevVal,granoIngresado]})  
   }
 
-  /*
 let titulo = allGrains.map(a => a.titulo);
 let nombreGrano = allGrains.map(a => a.nombreGrano);
 let nombreLupulo = allGrains.map(a => a.nombreLupulo);
@@ -86,31 +85,15 @@ function setDataForDB(){
  
   setDataForDB()
 
-*/
-
-let titulo = allGrains.map(a => a.titulo);
-let nombreGrano = allGrains.map(a => a.nombreGrano);
-let nombreLupulo = allGrains.map(a => a.nombreLupulo);
-let cantidadGrano = allGrains.map(a => a.cantidadGrano);
-let cantidadLupulo = allGrains.map(a => a.cantidadLupulo);
-
-let data = {titulo:titulo[0],
-  grano:{nombreGrano:nombreGrano[0], cantidadGrano:cantidadGrano[0]},
-  lupulo:{nombreLupulo:nombreLupulo[0], cantidadLupulo:cantidadLupulo[0]},
-}
-
-console.log(data);
-
 
 
 function guardarReceta() {
      axios.post("http://localhost:3000/recetas",
-     data )
+     dataForDataBase )
    .then(function (response) {
     console.log(response);
   })
   }
-
 
   return (    
     <div>
