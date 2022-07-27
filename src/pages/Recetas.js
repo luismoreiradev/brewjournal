@@ -18,38 +18,9 @@ function Recetas() {
     console.log(error);
   })
         
-       /*
-        fetch("http://localhost:3000/recetas")
-        .then(res=>res.json())
-        .then(result=>{ 
-            setRecetas(result)             
-        }) 
-        */     
     
     },[])
 
-    /*
-     
-let datosImprimir
-
-   recetas.map(receta=>{
-    const keys = Object.keys(receta);
-    
-    keys.forEach((key, index) => {
-      
-      datosImprimir=(`${key}: ${receta[key]}`)
-   console.log(datosImprimir);
-});
-
- }) 
- */
- /*
- recetas.map(receta=> {
-  Object.entries(receta).forEach(([key, value]) => 
-  [key, value].map(x=>{console.log(key,value)})
-  );
-})
-   */
 
 
     return ( 
@@ -58,7 +29,9 @@ let datosImprimir
             <h1>Libro de recetas</h1>
               {recetas.map(receta=>{
                    return <div>
-       <div><h2>Titulo {receta.titulo}</h2> <p> grano: {receta.grano.nombreGrano} cantidad: {receta.grano.cantidadGrano}</p><p>lupulo:{receta.lupulo.nombreLupulo} cantidad:{receta.lupulo.cantidadLupulo}</p></div>     
+       <div><h2>Titulo {receta.titulo}</h2> <p>{receta.grano.map(grain=>{return <span> grano: {grain.nombreGrano} cantidad:{grain.cantidadGrano}</span> })} </p>
+       <p>{receta.lupulo.map(hop=>{return <span> lupulo: {hop.nombreLupulo} cantidad:{hop.cantidadLupulo}</span>})}</p>
+      </div>     
      </div>
        })}  
         <h1>Imprimir datos</h1>
