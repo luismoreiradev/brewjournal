@@ -22,39 +22,84 @@ function newVolums(volums) {
 setAllGrains(prevVal=>{return [...prevVal,granoIngresado]})  
   }
 
- 
 let titulo = allGrains.map(a => a.titulo);
 let nombreGrano = allGrains.map(a => a.nombreGrano);
 let nombreLupulo = allGrains.map(a => a.nombreLupulo);
 let cantidadGrano = allGrains.map(a => a.cantidadGrano);
 let cantidadLupulo = allGrains.map(a => a.cantidadLupulo);
 
-let data = {titulo:titulo[0],
-  grano:{nombreGrano:nombreGrano[0], cantidadGrano:cantidadGrano[0]},
-  lupulo:{nombreLupulo:nombreLupulo[0], cantidadLupulo:cantidadLupulo[0]},
-}
+let indexGrano=0 
+let grain="grano"
+let grano
 
-console.log(data);
+let indexLupulo=0 
+let hop="lupulo"
+let lupulo
+
+let indexCantidadGrano=0 
+let grainQuantity="cantidadGrano"
+let granoCantidad
+
+let indexCantidadLupulo=0 
+let hopQuantity="cantidadLupulo"
+let lupuloCantidad
+
+let dataForDataBase={}
+
+function setDataForDB(){ 
+    dataForDataBase["titulo"]=titulo[0]
+    
+        nombreGrano.forEach(element => {   
+          if (element.length > 0) {
+            indexGrano++
+            grano=grain.concat(indexGrano)
+          dataForDataBase[grano]=element               
+          }         
+        });
+
+        cantidadGrano.forEach(element => {   
+          if (element.length > 0) {
+            indexCantidadGrano++
+            granoCantidad=grainQuantity.concat(indexCantidadGrano)
+          dataForDataBase[granoCantidad]=element * multiplo            
+          }            
+        });
+
+        nombreLupulo.forEach(element => {   
+          if (element.length > 0) {
+            indexLupulo++
+            lupulo=hop.concat(indexLupulo)
+          dataForDataBase[lupulo]=element            
+          }          
+        });
+
+        cantidadLupulo.forEach(element => {   
+          if (element.length > 0) {
+            indexCantidadLupulo++
+            lupuloCantidad=hopQuantity.concat(indexCantidadLupulo)
+          dataForDataBase[lupuloCantidad]=element  * multiplo             
+          }         
+        });
+  }
+
+ 
+  setDataForDB()
 
 
 
 function guardarReceta() {
      axios.post("http://localhost:3000/recetas",
-     data )
+     dataForDataBase )
    .then(function (response) {
-    console.log(response);
+    console.log("data guardada");
   })
   }
-
- 
-
 
   return (    
     <div>
     <h1>Brewery Calculator</h1>
   <InputGranos newGrain={newGrain} newVolums={newVolums}/>
    <Granos allGrains={allGrains} volumenes={volumenes} factorConversionUnidades={factorConversionUnidades} />
-   
    <div><button onClick={guardarReceta}>guardar receta</button></div>
     </div>
     

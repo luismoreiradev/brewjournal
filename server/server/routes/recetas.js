@@ -9,7 +9,7 @@ const  recetasController=require("../controllers/recetasController")
 router.get('/', recetasController.getAll);
 router.post('/',/*(req,res,next)=>{req.app.validateUser(req,res,next)},*/recetasController.create);
 router.get('/:id', recetasController.getById);
-router.put('/:id',/* (req,res,next)=>{req.app.validateUser(req,res,next)},*/recetasController.update);
-router.delete('/:id',/*(req,res,next)=>{req.app.validateUser(req,res,next)},*/ recetasController.delete);
+router.put('/:id', (req,res,next)=>{req.app.validateUser(req,res,next)},recetasController.update);
+router.delete('/:id',(req,res,next)=>{req.app.validateUser(req,res,next)}, recetasController.delete);
 
 module.exports = router;
