@@ -4,6 +4,7 @@ const axios = require('axios');
 function Recetas() {
    
     const [recetas, setRecetas]=useState([]) 
+    const [unaReceta, setUnaReceta]= useState([])
     
     
     useEffect(()=>{ 
@@ -17,60 +18,36 @@ function Recetas() {
     // handle error
     console.log(error);
   })
+
+  
         
-       /*
-        fetch("http://localhost:3000/recetas")
-        .then(res=>res.json())
-        .then(result=>{ 
-            setRecetas(result)             
-        }) 
-        */     
+   
     
     },[])
 
-    /*
-     
-let datosImprimir
-
-   recetas.map(receta=>{
-    const keys = Object.keys(receta);
-    
-    keys.forEach((key, index) => {
-      
-      datosImprimir=(`${key}: ${receta[key]}`)
-   console.log(datosImprimir);
-});
-
- }) 
- */
- /*
- recetas.map(receta=> {
-  Object.entries(receta).forEach(([key, value]) => 
-  [key, value].map(x=>{console.log(key,value)})
-  );
-})
-*/
-/*
-recetas.forEach(element => {
-  for (const [key, val] of Object.entries(element)) {
-    console.log(key, val)
-  }
   
-});
-*/
-
-
-/*
-  {
-          recetas.map(receta => {
-            return Object.entries(receta).map(([recetaName, receta]) => (
-              <div >          
-              <span>{recetaName}: {receta}</span>
-              </div>      
-                    ));
-                })
+    
+    function irAreceta(receta){
+      console.log(receta);
+      /*
+      axios.get('http://localhost:3000/recetas/'+ receta)
+      .then(function (response) {
+        // handle success
+        setUnaReceta(response.data)
+        console.log(unaReceta);
+       
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+            
+       */
+        
         }
-        */
+ 
+    
+ 
 
 
     return ( 
@@ -78,6 +55,29 @@ recetas.forEach(element => {
         <div>
             <h1>Libro de recetas</h1>
              
+
+            {
+          recetas.map(receta => {
+            return Object.entries(receta).map(([recetaName, receta]) => {
+              if (recetaName === "titulo") {
+                
+                return <div>
+                  <h1> Titulo:</h1>
+             <a href='http://localhost:3000/recetas/631763fc62f42fe3c0bf626e'>ir a receta</a>
+             
+              </div>
+              } if ( recetaName === "_id") {
+                return <div>
+                  <span >{receta} </span>
+                  <button onClick={irAreceta(receta)} >{receta}</button>
+                  <a href='http://localhost:3000/recetas/${receta}'>en trabajo</a>
+                </div>
+              }
+              
+             });
+                })
+        }
+
        
         {
           recetas.map(receta => {
