@@ -1,10 +1,14 @@
 import React, {useEffect, useState} from 'react';
+
+import { useHistory } from "react-router-dom";
+import RecetaEnParticular from './RecetaEnParticular';
 const axios = require('axios');
+
 
 function Recetas() {
    
     const [recetas, setRecetas]=useState([]) 
-    const [unaReceta, setUnaReceta]= useState([])
+    const [particular, setParticular]= useState([])
     
     
     useEffect(()=>{ 
@@ -17,37 +21,20 @@ function Recetas() {
   .catch(function (error) {
     // handle error
     console.log(error);
-  })
-
-  
-        
+  })    
    
     
     },[])
 
   
-    
-    function irAreceta(receta){
-      console.log(receta);
-      /*
-      axios.get('http://localhost:3000/recetas/'+ receta)
-      .then(function (response) {
-        // handle success
-        setUnaReceta(response.data)
-        console.log(unaReceta);
-       
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      })
-            
-       */
-        
-        }
- 
-    
- 
+    const history = useHistory();
+    const navigateToRecetaEnParticular = () => {
+      let path = `/recetaenparticular`; 
+      history.push(path);
+      
+    };
+  
+   
 
 
     return ( 
@@ -67,10 +54,13 @@ function Recetas() {
              
               </div>
               } if ( recetaName === "_id") {
+                
                 return <div>
                   <span >{receta} </span>
-                  <button onClick={irAreceta(receta)} >{receta}</button>
-                  <a href='http://localhost:3000/recetas/${receta}'>en trabajo</a>
+                  <button onClick={navigateToRecetaEnParticular}>receta especifica</button>
+                 
+                  <a href={'http://localhost:3000/recetas/'+receta}>en trabajo</a>
+                
                 </div>
               }
               

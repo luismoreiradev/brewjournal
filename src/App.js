@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Calculador from "./pages/Calculador";
 import Menu from "./components/Menu";
 import Recetas from "./pages/Recetas"
+import RecetaEnParticular from './pages/RecetaEnParticular';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
       <Route path="/" component={Home} exact />
       <Route path="/calculador" component={Calculador} exact />
       <Route path="/Recetas" component={Recetas} exact />
+      <Route path="/recetaenparticular" component={RecetaEnParticular} exact />
     </BrowserRouter>
   );
 }
