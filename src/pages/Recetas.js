@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 
 import { useHistory } from "react-router-dom";
-import RecetaEnParticular from './RecetaEnParticular';
+import RecetaEnParticular from '../components/RecetaEnParticular';
 const axios = require('axios');
 
 
@@ -29,10 +29,27 @@ function Recetas() {
   
     const history = useHistory();
     const navigateToRecetaEnParticular = () => {
-      let path = `/recetaenparticular`; 
+      let path = `/PaginaRecetaEnParticular`; 
       history.push(path);
       
     };
+
+    function detalles(receta) {
+      
+    
+      axios.get("http://localhost:3000/recetas/"+receta)
+  .then(function (response) {
+    // handle success
+    setParticular(response.data)
+    console.log(particular);
+   
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })  
+  
+    }
   
    
 
@@ -42,7 +59,7 @@ function Recetas() {
         <div>
             <h1>Libro de recetas</h1>
              
-
+            <RecetaEnParticular datos={particular}/>
             {
           recetas.map(receta => {
             return Object.entries(receta).map(([recetaName, receta]) => {
@@ -60,7 +77,7 @@ function Recetas() {
                   <button onClick={navigateToRecetaEnParticular}>receta especifica</button>
                  
                   <a href={'http://localhost:3000/recetas/'+receta}>en trabajo</a>
-                
+                <button onClick={()=>{detalles(receta)} }>detalles</button>
                 </div>
               }
               
