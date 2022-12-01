@@ -34,14 +34,13 @@ function Recetas() {
       
     };
 
-    function detalles(receta) {
-      
+    function detalles(receta) {     
     
       axios.get("http://localhost:3000/recetas/"+receta)
   .then(function (response) {
     // handle success
     setParticular(response.data)
-    console.log(particular);
+    
    
   })
   .catch(function (error) {
@@ -60,23 +59,20 @@ function Recetas() {
             <h1>Libro de recetas</h1>
              
             <RecetaEnParticular datos={particular}/>
+            <div style={{padding:"50px"}}>
             {
           recetas.map(receta => {
             return Object.entries(receta).map(([recetaName, receta]) => {
-              if (recetaName === "titulo") {
-                
-                return <div>
-                  <h1> Titulo:</h1>
-             <a href='http://localhost:3000/recetas/631763fc62f42fe3c0bf626e'>ir a receta</a>
-             
-              </div>
-              } if ( recetaName === "_id") {
-                
-                return <div>
-                  <span >{receta} </span>
-                  <button onClick={navigateToRecetaEnParticular}>receta especifica</button>
+              
+              if (recetaName === "titulo") {                
+                return <div style={{  }} >
+                  <h1> Titulo:<span>{receta}</span></h1>
+                  
                  
-                  <a href={'http://localhost:3000/recetas/'+receta}>en trabajo</a>
+              </div>
+              } if ( recetaName === "_id") {  
+                              
+                return    <div style={{position:"relative",top:"100px"}} >           
                 <button onClick={()=>{detalles(receta)} }>detalles</button>
                 </div>
               }
@@ -84,8 +80,8 @@ function Recetas() {
              });
                 })
         }
-
-       
+</div>
+{/*      
         {
           recetas.map(receta => {
             return Object.entries(receta).map(([recetaName, receta]) => {
@@ -114,7 +110,7 @@ function Recetas() {
                       )}
              });
                 })
-        }
+        } */}
        
      
            
