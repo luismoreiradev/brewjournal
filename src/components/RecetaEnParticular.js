@@ -1,22 +1,27 @@
 function RecetaEnParticular(props) {
 
-    const data = props.datos
+    let data = props.datos
+    
     return ( 
         <div>
-       <p>{props.datos.titulo}</p>
-       <p>{props.datos.cantidadGrano1}</p>
-       {Object.keys(data).map((key, index) => {
-        return (
+      {
+      Object.keys(data).map((key, index) => {
+        if(key==="_id" || key==="__v"){
+          return(
+            <span></span>
+          )
+        }else{ return (
           <div key={index}>
             <h2>
               {key}: {data[key]}
             </h2>
 
-            <hr />
+           
           </div>
-        );
+        );}
+       
       })}
-
+           
         </div>
      );
 }

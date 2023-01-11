@@ -9,8 +9,8 @@ function Recetas() {
    
     const [recetas, setRecetas]=useState([]) 
     const [particular, setParticular]= useState([])
-    
-    
+    const [mostrar,setMostrar]= useState(false)
+       
     useEffect(()=>{ 
         axios.get("http://localhost:3000/recetas")
   .then(function (response) {
@@ -33,15 +33,18 @@ function Recetas() {
       history.push(path);
       
     };
-
+    
+    
+    
     function detalles(receta) {     
+    setMostrar(!mostrar)
+    
     
       axios.get("http://localhost:3000/recetas/"+receta)
   .then(function (response) {
     // handle success
     setParticular(response.data)
     
-   
   })
   .catch(function (error) {
     // handle error
@@ -50,36 +53,34 @@ function Recetas() {
   
     }
   
-   
-
-
     return ( 
         
         <div>
             <h1>Libro de recetas</h1>
+         <div>
+             <RecetaEnParticular datos={particular}/>
              
-            <RecetaEnParticular datos={particular}/>
+            </div>
+      
+
             <div style={{padding:"50px"}}>
-            {
+            {mostrar  ? false :
           recetas.map(receta => {
-            return Object.entries(receta).map(([recetaName, receta]) => {
-              
+            return Object.entries(receta).map(([recetaName, receta]) => {              
               if (recetaName === "titulo") {                
                 return <div style={{  }} >
-                  <h1> Titulo:<span>{receta}</span></h1>
-                  
-                 
+                  <h1> Titulo:<span>{receta}</span></h1>        
               </div>
-              } if ( recetaName === "_id") {  
-                              
+              } if ( recetaName === "_id") {                                
                 return    <div style={{position:"relative",top:"100px"}} >           
                 <button onClick={()=>{detalles(receta)} }>detalles</button>
                 </div>
               }
-              
+                            
              });
                 })
         }
+        
 </div>
 {/*      
         {
