@@ -1,0 +1,47 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+/log/*.log
+/tmp
+tmp/
+
+.tmp.driveupload/*
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.tmp.drivedownload/696578.1643894583196196
+.tmp.drivedownload/696590.1643894583220671
+.tmp.drivedownload/696592.1643894583223862
+.tmp.drivedownload/696594.1643894583226889
+.tmp.drivedownload/696596.1643894583230292
+.tmp.drivedownload/696598.1643894583233394
+.tmp.drivedownload/696600.1643894583236323
+.tmp.drivedownload/696604.1643894583241732
+.tmp.drivedownload/696606.1643894583244715
+.tmp.drivedownload/696658.1643894583334182
+.tmp.drivedownload/696660.1643894583395424
+.tmp.drivedownload/696740.1643894583527349
+.tmp.drivedownload/696742.1643894583530120
+.tmp.drivedownload/696746.1643894583538222
+.tmp.drivedownload/696748.1643894583542108
+.tmp.drivedownload/696782.1643894583614849
+.tmp.drivedownload/696812.1643894583679539
+.gitignore
