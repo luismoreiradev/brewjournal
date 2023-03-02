@@ -10,6 +10,7 @@ function Recetas() {
     const [recetas, setRecetas]=useState([]) 
     const [particular, setParticular]= useState([])
     const [mostrar,setMostrar]= useState(false)
+    const [verBoton, setVerBoton]= useState({display:"none"})
        
     useEffect(()=>{ 
         axios.get("http://localhost:3000/recetas")
@@ -31,14 +32,18 @@ function Recetas() {
     const navigateToRecetaEnParticular = () => {
       let path = `/PaginaRecetaEnParticular`; 
       history.push(path);
+      };
+
       
-    };
+   
+
+    
     
     
     
     function detalles(receta) {     
-    setMostrar(!mostrar)
-    
+    setMostrar({display:"block"})
+    setVerBoton({display:"block"})
     
       axios.get("http://localhost:3000/recetas/"+receta)
   .then(function (response) {
@@ -58,8 +63,8 @@ function Recetas() {
         <div>
             <h1>Libro de recetas</h1>
          <div>
-             <RecetaEnParticular datos={particular}/>
-             
+             <RecetaEnParticular datos={particular} verBoton={verBoton}/>
+            
             </div>
       
 
@@ -80,6 +85,7 @@ function Recetas() {
              });
                 })
         }
+        
         
 </div>
 {/*      
