@@ -1,4 +1,5 @@
 import { useHistory } from "react-router-dom";
+const axios = require('axios');
 
 function RecetaEnParticular(props) {
 
@@ -8,6 +9,12 @@ function RecetaEnParticular(props) {
     history.push(path);
     window.location.reload(false);
     };
+
+    function borrarReceta() {
+      console.log(data._id);
+      axios.delete("http://localhost:3000/recetas/"+data._id)
+      navigateToRecetas()
+    }
 
     let data = props.datos
     
@@ -33,6 +40,7 @@ function RecetaEnParticular(props) {
       })}
 
      <button style={props.verBoton} onClick={navigateToRecetas}>volver a recetas</button>
+     <button onClick={borrarReceta}>Borrar receta</button>
            
         </div>
      );

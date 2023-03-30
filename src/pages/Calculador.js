@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import InputGranos from '../components/InputGranos';
 import Granos from '../components/Granos';
+import { useHistory } from "react-router-dom";
 const axios = require('axios');
 
 
@@ -85,6 +86,12 @@ function setDataForDB(){
  
   setDataForDB()
 
+  
+  const history = useHistory();
+  const irAhome = () => {
+    let path = `/recetas`; 
+    history.push(path);
+    };
 
 
 function guardarReceta() {
@@ -93,6 +100,7 @@ function guardarReceta() {
    .then(function (response) {
     console.log("data guardada");
   })
+  irAhome()
   }
 
   return (    
