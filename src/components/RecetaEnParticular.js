@@ -5,6 +5,7 @@ const axios = require('axios');
 function RecetaEnParticular(props) {
 
   const [identificadorParaUpdate, setIdentificadorParaUpdate] = useState(""); 
+  const [nuevoValor, setNuevoValor]= useState("")
 
   const history = useHistory();
   const navigateToRecetas = () => {
@@ -22,6 +23,11 @@ function RecetaEnParticular(props) {
       navigateToRecetas()
     }
 
+    
+    function handleChange(event) {
+      const value = event.target.value
+      setNuevoValor(prevVal=>{return {...prevVal,value}})
+    }
 
 
 
@@ -49,17 +55,21 @@ function RecetaEnParticular(props) {
               {key}: {data[key]}
              
             </h2>
+            <label htmlFor="valorAeditar">Ingresar nuevo valor: </label>
+      <input  name="valorAeditar" onChange={handleChange} ></input>
              
           <button onClick={() => {
                   setIdentificadorParaUpdate(key);
                   console.log(`Button for ${identificadorParaUpdate} clicked.`);
+                  
+                  console.log(nuevoValor.value);
                 }}>editar {key}</button>
           
           </div>
         );}
        
       })}
-
+    
      <button style={props.verBoton} onClick={navigateToRecetas}>volver a recetas</button>
      <button onClick={borrarReceta}>Borrar receta</button>
            
