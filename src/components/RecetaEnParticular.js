@@ -6,7 +6,7 @@ function RecetaEnParticular(props) {
 
   const [identificadorParaUpdate, setIdentificadorParaUpdate] = useState(""); 
   const [nuevoValor, setNuevoValor]= useState("")
-
+  
   const history = useHistory();
   const navigateToRecetas = () => {
     let path = `/recetas`; 
@@ -14,8 +14,8 @@ function RecetaEnParticular(props) {
     window.location.reload(false);
     };
 
-    let id
     
+    let id
 
     function borrarReceta() {
       console.log(data._id);
@@ -25,13 +25,32 @@ function RecetaEnParticular(props) {
 
     
     function handleChange(event) {
-      const value = event.target.value
-      setNuevoValor(prevVal=>{return {...prevVal,value}})
+    
+      const value = event.target.value;
+    setNuevoValor(value);
+    console.log(nuevoValor);
+
     }
 
+    function handleUpdate(keyToUpdate) {
+      if (identificadorParaUpdate && nuevoValor) {
+        const updatedField = {
+          [keyToUpdate]: nuevoValor
+        };
+    
+        axios.put("http://localhost:3000/recetas/" + data._id, updatedField)
+          .then(response => {
+            console.log("Field updated:", response.data);
+            // You might want to update your UI or state accordingly
+          })
+          .catch(error => console.error("Error updating field:", error));
+      }
+    }
 
+  
 
-
+   
+   
     let data = props.datos
     
     return ( 
@@ -60,11 +79,10 @@ function RecetaEnParticular(props) {
              
           <button onClick={() => {
                   setIdentificadorParaUpdate(key);
-                  console.log(`Button for ${identificadorParaUpdate} clicked.`);
+                  handleUpdate(key)
                   
-                  console.log(nuevoValor.value);
-                }}>editar {key}</button>
-          
+                   }}>editar {key}</button>
+                         
           </div>
         );}
        
