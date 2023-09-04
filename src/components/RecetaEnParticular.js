@@ -1,5 +1,6 @@
 import { useHistory } from "react-router-dom";
 import React, { useState } from "react";
+import { useEffect } from "react";
 const axios = require('axios');
 
 function RecetaEnParticular(props) {
@@ -24,32 +25,37 @@ function RecetaEnParticular(props) {
     }
 
     
-    function handleChange(event) {
     
-      const value = event.target.value;
-    setNuevoValor(value);
-    console.log(nuevoValor);
+    function handleChange(event) {    
+      const value = event.target.value;      
+    setNuevoValor(value);    
+    handleUpdate(identificadorParaUpdate);
+       }
 
-    }
 
-    function handleUpdate(keyToUpdate) {
-      if (identificadorParaUpdate && nuevoValor) {
-        const updatedField = {
-          [keyToUpdate]: nuevoValor
-        };
-    
-        axios.put("http://localhost:3000/recetas/" + data._id, updatedField)
-          .then(response => {
-            console.log("Field updated:", response.data);
-            // You might want to update your UI or state accordingly
-          })
-          .catch(error => console.error("Error updating field:", error));
+       
+       useEffect(() => {
+        handleUpdate(identificadorParaUpdate, nuevoValor);
+      }, [nuevoValor, identificadorParaUpdate]);
+      
+      
+      
+      function handleUpdate(keyToUpdate, nuevoValor) {
+        if (keyToUpdate && nuevoValor) {
+          const updatedField = {
+            [keyToUpdate]: nuevoValor,
+          };
+      
+          axios
+            .put("http://localhost:3000/recetas/" + data._id, updatedField)
+            .then((response) => {
+              console.log("Field updated:", response.data);
+             
+            })
+            .catch((error) => console.error("Error updating field:", error));
+        }
       }
-    }
 
-  
-
-   
    
     let data = props.datos
     
