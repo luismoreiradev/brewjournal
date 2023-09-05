@@ -7,6 +7,7 @@ function RecetaEnParticular(props) {
 
   const [identificadorParaUpdate, setIdentificadorParaUpdate] = useState(""); 
   const [nuevoValor, setNuevoValor]= useState("")
+  const [estiloEdicion,setEstiloEdicion]=useState({display:"none"})
   
   const history = useHistory();
   const navigateToRecetas = () => {
@@ -56,7 +57,13 @@ function RecetaEnParticular(props) {
         }
       }
 
-   
+    
+        function cambiarEstiloEdicion() {
+        setEstiloEdicion({display:"block"})
+          
+                 }
+
+
     let data = props.datos
     
     return ( 
@@ -72,14 +79,14 @@ function RecetaEnParticular(props) {
           )
         }else{
          
-          
-           
           return (
+            
           <div key={index}>
             <h2>
               {key}: {data[key]}
              
             </h2>
+            <div style={estiloEdicion}>
             <label htmlFor="valorAeditar">Ingresar nuevo valor: </label>
       <input  name="valorAeditar" onChange={handleChange} ></input>
              
@@ -88,14 +95,19 @@ function RecetaEnParticular(props) {
                   handleUpdate(key)
                   
                    }}>editar {key}</button>
-                         
+                   </div>
+                    
           </div>
+         
+          
+
         );}
-       
+        
       })}
-    
+      
+      <button style={props.verBoton} onClick={cambiarEstiloEdicion} >Editar receta</button>
      <button style={props.verBoton} onClick={navigateToRecetas}>volver a recetas</button>
-     <button onClick={borrarReceta}>Borrar receta</button>
+     <button style={props.verBoton} onClick={borrarReceta}>Borrar receta</button>  
            
         </div>
      );

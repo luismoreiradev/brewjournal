@@ -34,12 +34,6 @@ function Recetas() {
       history.push(path);
       };
 
-      
-   
-
-    
-    
-    
     
     function detalles(receta) {     
     setMostrar({display:"block"})
@@ -88,39 +82,7 @@ function Recetas() {
         
         
 </div>
-{/*      
-        {
-          recetas.map(receta => {
-            return Object.entries(receta).map(([recetaName, receta]) => {
-              if (recetaName === "titulo") {
-                return <h2> Titulo: {receta}</h2>
-              }
-              if (recetaName.slice(0,3) === "gra") {
-                return <h2> Grano: {receta} </h2>
-              }
-              if (recetaName.slice(0,9) === "cantidadG") {
-                return <h2 > Cantidad del grano: {receta}kg</h2>
-              }
-              if (recetaName.slice(0,3) === "lup") {
-                return <h2 > Lupulo: {receta}</h2>
-              }
-              if (recetaName.slice(0,9) === "cantidadL") {
-                return <h2 > Cantidad del lupulo: {receta}gr</h2>
-              }
-              if (recetaName === "__v" || recetaName === "_id") {
-                return <span > </span>
-              }
-              else{ return(             
-                <div >          
-                <span>{recetaName}: {receta}</span>
-                </div>      
-                      )}
-             });
-                })
-        } */}
-       
-     
-           
+        
 
         </div>
      );
