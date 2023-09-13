@@ -95,6 +95,7 @@ function setDataForDB(){
 
 
 function guardarReceta() {
+  console.log(dataForDataBase);
      axios.post("http://localhost:3000/recetas",
      dataForDataBase )
    .then(function (response) {

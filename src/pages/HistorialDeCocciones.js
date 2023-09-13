@@ -54,7 +54,7 @@ function HistorialDeCocciones() {
     return ( 
         
         <div>
-            <h1>Libro de recetas</h1>
+            <h1>Historial de cocciones</h1>
          <div>
              <RecetaEnParticular datos={particular} verBoton={verBoton}/>
             

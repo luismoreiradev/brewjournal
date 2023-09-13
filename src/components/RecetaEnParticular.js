@@ -20,8 +20,7 @@ function RecetaEnParticular(props) {
     let id
 
     function borrarReceta() {
-      console.log(data._id);
-      axios.delete("http://localhost:3000/recetas/"+data._id)
+           axios.delete("http://localhost:3000/recetas/"+data._id)
       navigateToRecetas()
     }
 
@@ -62,6 +61,20 @@ function RecetaEnParticular(props) {
         setEstiloEdicion({display:"block"})
           
                  }
+
+      function cocinarReceta() {
+        const dataToSend = { ...data };
+        delete dataToSend._id;
+        delete dataToSend.__v;
+        console.log(dataToSend);
+       
+     axios.post("http://localhost:3000/recetas",
+     dataToSend )
+   .then(function (response) {
+    console.log("data guardada");
+  })
+  
+      }
 
 
     let data = props.datos
@@ -108,6 +121,7 @@ function RecetaEnParticular(props) {
       <button style={props.verBoton} onClick={cambiarEstiloEdicion} >Editar receta</button>
      <button style={props.verBoton} onClick={navigateToRecetas}>volver a recetas</button>
      <button style={props.verBoton} onClick={borrarReceta}>Borrar receta</button>  
+     <button style={props.verBoton} onClick={cocinarReceta}>Cocinar receta</button>
            
         </div>
      );
