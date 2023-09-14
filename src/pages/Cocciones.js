@@ -5,7 +5,7 @@ import RecetaEnParticular from '../components/RecetaEnParticular';
 const axios = require('axios');
 
 
-function HistorialDeCocciones() {
+function Cocciones() {
     const [recetas, setRecetas]=useState([]) 
     const [particular, setParticular]= useState([])
     const [mostrar,setMostrar]= useState(false)
@@ -87,4 +87,4 @@ function HistorialDeCocciones() {
      );
 }
 
-export default HistorialDeCocciones;
+export default Cocciones;

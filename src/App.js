@@ -7,7 +7,7 @@ import Calculador from "./pages/Calculador";
 import Menu from "./components/Menu";
 import Recetas from "./pages/Recetas"
 import RecetaEnParticular from './components/RecetaEnParticular';
-import HistorialDeCocciones from './pages/HistorialDeCocciones';
+import Cocciones from './pages/Cocciones';
 
 
 
@@ -23,7 +23,7 @@ function App() {
       <Route path="/calculador" component={Calculador} exact />
       <Route path="/Recetas" component={Recetas} exact />
       <Route path="/PaginaRecetaEnParticular" component={RecetaEnParticular} exact />
-      <Route path="/HistorialDeCocciones" component={HistorialDeCocciones} exact />
+      <Route path="/Cocciones" component={Cocciones} exact />
     </BrowserRouter>
   );
 }
