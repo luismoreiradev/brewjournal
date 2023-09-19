@@ -33,7 +33,8 @@ const coccionesSchema= new mongoose.Schema({
     lupulo6:String,
     cantidadLupulo6:Number,
     levadura:{type:String,
-               /*required:true*/}
+               /*required:true*/},
+               notaDeCoccionYcata:{type:String}
 });
 
 module.exports =mongoose.model("cocciones", coccionesSchema)
