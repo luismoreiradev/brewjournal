@@ -1,15 +1,15 @@
 var express = require('express');
 var router = express.Router();
 
-const  coccinesController=require("../controllers/coccinesController")
+const  coccionesController=require("../controllers/coccionesController")
 
 /*validate user disabled en post*/
 
 /* GET home page. */
-router.get('/', coccinesController.getAll);
-router.post('/',/*(req,res,next)=>{req.app.validateUser(req,res,next)},*/coccinesController.create);
-router.get('/:id', coccinesController.getById);
-router.put('/:id',/* (req,res,next)=>{req.app.validateUser(req,res,next)},*/coccinesController.update);
-router.delete('/:id',/*(req,res,next)=>{req.app.validateUser(req,res,next)},*/ coccinesController.delete);
+router.get('/', coccionesController.getAll);
+router.post('/',/*(req,res,next)=>{req.app.validateUser(req,res,next)},*/coccionesController.create);
+router.get('/:id', coccionesController.getById);
+router.put('/:id',/* (req,res,next)=>{req.app.validateUser(req,res,next)},*/coccionesController.update);
+router.delete('/:id',/*(req,res,next)=>{req.app.validateUser(req,res,next)},*/ coccionesController.delete);
 
 module.exports = router;

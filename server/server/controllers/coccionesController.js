@@ -42,6 +42,7 @@ module.exports = {
         lupulo6: req.body.lupulo6,
         cantidadLupulo6: req.body.cantidadLupulo6,
         levadura: req.body.levadura,
+        notaDeCoccionYcata: req.body.notaDeCoccionYcata
       });
       const document = await cocciones.save();
       res.json(document);
@@ -63,6 +64,7 @@ module.exports = {
       next(e);
     }
   },
+  /*
   update: async function (req, res, next) {
     try {
       const document = await coccionesModel.updateOne(
@@ -71,6 +73,29 @@ module.exports = {
       );
       res.json(document);
     } catch (e) {
+      next(e);
+    }
+  },
+  */
+  update: async function (req, res, next) {
+    try {
+      const updatedField = {
+        notaDeCoccionYcata: req.body.notaDeCoccionYcata,
+      };
+  
+      const document = await coccionesModel.findByIdAndUpdate(
+        req.params.id,
+        updatedField,
+        { new: true }
+      );
+  
+      if (!document) {
+        return res.status(404).json({ message: "Recipe not found" });
+      }
+  
+      res.json(document);
+    } catch (e) {
+      console.error(e);
       next(e);
     }
   },
