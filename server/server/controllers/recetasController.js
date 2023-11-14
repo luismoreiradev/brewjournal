@@ -15,6 +15,7 @@ module.exports = {
     try {
       const recetas = new recetasModel({
         titulo: req.body.titulo,
+        instrucciones: req.body.instrucciones,
         grano1: req.body.grano1,
         cantidadGrano1: req.body.cantidadGrano1,
         grano2: req.body.grano2,

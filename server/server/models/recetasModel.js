@@ -4,6 +4,7 @@ const recetasSchema= new mongoose.Schema({
     titulo:{type:String,
     /*required:true,*/
     minlength:3},
+    instrucciones:{type:String},
     grano1:{type:String,
     /*required:true,*/
     minlength:2},

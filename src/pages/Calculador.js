@@ -10,6 +10,7 @@ function Calculador() {
   const [allGrains, setAllGrains]=useState([])
 const [volumenes, setVolumenes]=useState({})
 const [multiplo, setMultiplo]=useState(1)
+const[instrucciones, setInstrucciones]=useState("")
 
 function factorConversionUnidades(conversor){
   setMultiplo(conversor)
@@ -47,8 +48,24 @@ let lupuloCantidad
 
 let dataForDataBase={}
 
+function handleChangeInstrucciones(event) {
+   
+  const value = event.target.value;
+  setInstrucciones(value)
+  console.log(instrucciones);
+  /*
+  handleUpdateInstrucciones()
+  */
+}
+/*
+function handleUpdateInstrucciones(instrucciones) {
+  console.log(instrucciones);
+}
+*/
+
 function setDataForDB(){ 
     dataForDataBase["titulo"]=titulo[0]
+    dataForDataBase["instrucciones"]=instrucciones
     
         nombreGrano.forEach(element => {   
           if (element.length > 0) {
@@ -109,6 +126,10 @@ function guardarReceta() {
     <h1>Brewery Calculator!!!</h1>
   <InputGranos newGrain={newGrain} newVolums={newVolums}/>
    <Granos allGrains={allGrains} volumenes={volumenes} factorConversionUnidades={factorConversionUnidades} />
+   <form>
+    <label for="instrucciones">Instrucciones</label>
+    <textarea onChange={handleChangeInstrucciones} value={instrucciones} name="instrucciones" rows="5" cols="33"></textarea>
+   </form>
    <div><button onClick={guardarReceta}>guardar receta</button></div>
     </div>
     

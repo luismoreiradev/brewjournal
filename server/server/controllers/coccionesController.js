@@ -64,7 +64,7 @@ module.exports = {
       next(e);
     }
   },
-  /*
+  
   update: async function (req, res, next) {
     try {
       const document = await coccionesModel.updateOne(
@@ -76,7 +76,8 @@ module.exports = {
       next(e);
     }
   },
-  */
+  
+ /*
   update: async function (req, res, next) {
     try {
       const updatedField = {
@@ -99,6 +100,7 @@ module.exports = {
       next(e);
     }
   },
+  */
   delete: async function (req, res, next) {
     try {
       const document = await coccionesModel.deleteOne({ _id: req.params.id });
