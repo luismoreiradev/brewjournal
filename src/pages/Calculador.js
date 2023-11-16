@@ -108,6 +108,7 @@ function setDataForDB(){
   const irAhome = () => {
     let path = `/recetas`; 
     history.push(path);
+    window.location.reload(false)
     };
 
 
@@ -117,8 +118,9 @@ function guardarReceta() {
      dataForDataBase )
    .then(function (response) {
     console.log("data guardada");
+    irAhome()
   })
-  irAhome()
+  
   }
 
   return (    

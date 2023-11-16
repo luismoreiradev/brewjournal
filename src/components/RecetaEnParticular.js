@@ -7,6 +7,7 @@ function RecetaEnParticular(props) {
   const [identificadorParaUpdate, setIdentificadorParaUpdate] = useState("");
   const [nuevoValor, setNuevoValor] = useState("");
   const [estiloEdicion, setEstiloEdicion] = useState({ display: "none" });
+  const [editarButtonDisplay, setEditarButtonDisplay] = useState("block");
 
   const history = useHistory();
   const navigateToRecetas = () => {
@@ -18,37 +19,56 @@ function RecetaEnParticular(props) {
   let id;
 
   function borrarReceta() {
-    axios.delete("http://localhost:3000/recetas/" + data._id);
-    navigateToRecetas();
+    axios.delete("http://localhost:3000/recetas/" + data._id)
+    .then(() => {
+       navigateToRecetas();
+    })
   }
 
-  function handleChange(event) {
+  /*
+  function handleChange(event, keyToUpdate) {
     const value = event.target.value;
     setNuevoValor(value);
-    handleUpdate(identificadorParaUpdate);
+    handleUpdate({ [keyToUpdate]: value });
   }
-
+  */
+  
+/*
   useEffect(() => {
     handleUpdate(identificadorParaUpdate, nuevoValor);
   }, [nuevoValor, identificadorParaUpdate]);
+  */
+  
+  function handleChange(event, keyToUpdate) {
+    const value = event.target.value;
+    setNuevoValor(value);
+    handleUpdate({ [keyToUpdate]: value });
+  }
+  
 
-  function handleUpdate(keyToUpdate, nuevoValor) {
-    if (keyToUpdate && nuevoValor) {
-      const updatedField = {
-        [keyToUpdate]: nuevoValor,
-      };
+  
+  function handleUpdate(fieldsToUpdate) {
+    if (fieldsToUpdate && Object.keys(fieldsToUpdate).length > 0) {
+      const updatedFields = fieldsToUpdate;
 
       axios
-        .put("http://localhost:3000/recetas/" + data._id, updatedField)
+        .put("http://localhost:3000/recetas/" + data._id, updatedFields)
         .then((response) => {
-          console.log("Field updated:", response.data);
-        })
-        .catch((error) => console.error("Error updating field:", error));
+          console.log("Fields updated:", response.data);
+         
+           })
+           .catch((error) => console.error("Error updating fields:", error));
     }
   }
+  
+ 
 
   function cambiarEstiloEdicion() {
     setEstiloEdicion({ display: "block" });
+    setEditarButtonDisplay("none");
+
+   
+    
   }
 
   function cocinarReceta() {
@@ -81,23 +101,17 @@ function RecetaEnParticular(props) {
               </h2>
               <div style={estiloEdicion}>
                 <label htmlFor="valorAeditar">Ingresar nuevo valor: </label>
-                <input name="valorAeditar" onChange={handleChange}></input>
-
-                <button
-                  onClick={() => {
-                    setIdentificadorParaUpdate(key);
-                    handleUpdate(key);
-                  }}
-                >
-                  editar {key}
-                </button>
+                <input name="valorAeditar"/*onChange={handleChange}*/onChange={(event) => handleChange(event, key)}></input>
+                
+                
+                
               </div>
             </div>
           );
         }
       })}
 
-      <button style={props.verBoton} onClick={cambiarEstiloEdicion}>
+      <button  style={{ ...props.verBoton, display: editarButtonDisplay }} onClick={cambiarEstiloEdicion}>
         Editar receta
       </button>
       <button style={props.verBoton} onClick={navigateToRecetas}>
