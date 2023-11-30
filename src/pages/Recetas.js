@@ -54,7 +54,7 @@ function Recetas() {
   
     return ( 
         
-        <div>
+        <div >
             <h1>Libro de recetas</h1>
          <div>
              <RecetaEnParticular datos={particular} verBoton={verBoton}/>
@@ -71,7 +71,7 @@ function Recetas() {
                   <h1> Titulo:<span>{receta}</span></h1>        
               </div>
               } if ( recetaName === "_id") {                                
-                return    <div style={{position:"relative",top:"100px"}} >           
+                return    <div className="relative top-16" /*style={{position:"relative",top:"100px"}}*/ >           
                 <button onClick={()=>{detalles(receta)} }>detalles</button>
                 </div>
               }

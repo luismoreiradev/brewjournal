@@ -124,7 +124,7 @@ function guardarReceta() {
   }
 
   return (    
-    <div>
+    <div >
     <h1>Brewery Calculator!!!</h1>
   <InputGranos newGrain={newGrain} newVolums={newVolums}/>
    <Granos allGrains={allGrains} volumenes={volumenes} factorConversionUnidades={factorConversionUnidades} />
