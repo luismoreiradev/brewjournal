@@ -2,9 +2,9 @@
 
 function Home() {
     return ( 
-        <div>
-        <h1 >Home page</h1>
-        <p >esta pagina esta vacia todavia pero ya la voy a llenar</p>
+        <div className="bg-amber-500">
+        <h1 className="text-center text-9xl">Home page</h1>
+        <p className="p-10">esta pagina esta vacia todavia pero ya la voy a llenar</p>
         </div>
      );
 }

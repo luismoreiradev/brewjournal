@@ -125,10 +125,10 @@ function guardarReceta() {
 
   return (    
     <div >
-    <h1>Brewery Calculator!!!</h1>
-  <InputGranos newGrain={newGrain} newVolums={newVolums}/>
+    <h1  class="mb-4 text-6xl font-extrabold ">Brewery Calculator!!!</h1>
+  <InputGranos  newGrain={newGrain} newVolums={newVolums}/>
    <Granos allGrains={allGrains} volumenes={volumenes} factorConversionUnidades={factorConversionUnidades} />
-   <form>
+   <form  >
     <label for="instrucciones">Instrucciones</label>
     <textarea onChange={handleChangeInstrucciones} value={instrucciones} name="instrucciones" rows="5" cols="33"></textarea>
    </form>

@@ -45,24 +45,27 @@ function submitear(event) {
 
 
   return (
-    <div > 
+    <div class="p-20"> 
     
-     <form  >
-      {hayTitulo ? null : <><label  htmlFor="titulo">Titulo:</label>
-   <input value={granoIngresado.titulo} name="titulo" type="text" onChange={handleChange}/> </>}
+     <form class=" mx-auto space-y-4  " >
+      {hayTitulo ? null : <div class="mb-5 space-x-4"><label  class=" mb-2 text-sm font-medium text-gray-900 dark:text-white"  htmlFor="titulo">Titulo:</label>
+   <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg" value={granoIngresado.titulo} name="titulo" type="text" onChange={handleChange}/> </div>}
 
-    {hayVolumen ? <div style={inputStyle} ><label htmlFor="newBatchSize">New batch size:</label>
-   <input value={volums.newBatchSize} name="newBatchSize" type="number" onChange={handleChange}/><span>gal</span></div> :<div><label htmlFor="originalBatchSize">Original batch size:</label>
-   <input value={volums.originalBatchSize} name="originalBatchSize" type="number" onChange={handleChange}/><span>gal</span></div>}
-
-  <label htmlFor="grano">Grano:</label>
-   <input value={granoIngresado.nombreGrano} name="nombreGrano" type="text" onChange={handleChange}/>
-   <label htmlFor="granoCantidad">Cantidad:</label>
-   <input value={granoIngresado.cantidadGrano} name="cantidadGrano" type="number" onChange={handleChange}/>
-   <label htmlFor="lupulo">Lupulo:</label>
-   <input value={granoIngresado.nombreLupulo} name="nombreLupulo" type="text" onChange={handleChange}/>
-   <label htmlFor="lupuloCantidad">Cantidad lupulo:</label>
-   <input value={granoIngresado.cantidadLupulo} name="cantidadLupulo" type="number" onChange={handleChange}/>
+    {hayVolumen ? <div class="mb-5 space-x-4" style={inputStyle} ><label  class=" mb-2 text-sm font-medium text-gray-900 dark:text-white" htmlFor="newBatchSize">New batch size:</label>
+   <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg" value={volums.newBatchSize} name="newBatchSize" type="number" onChange={handleChange}/><span>gal</span></div> :<div class="space-x-4"><label htmlFor="originalBatchSize">Original batch size:</label>
+   <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg" value={volums.originalBatchSize} name="originalBatchSize" type="number" onChange={handleChange}/><span>gal</span></div>}
+<div class="mb-5 space-x-4">
+  <label  class=" mb-2 text-sm font-medium text-gray-900 dark:text-white" htmlFor="grano">Grano:</label>
+   <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg" value={granoIngresado.nombreGrano} name="nombreGrano" type="text" onChange={handleChange}/>
+   <label  class=" mb-2 text-sm font-medium text-gray-900 dark:text-white" htmlFor="granoCantidad">Cantidad:</label>
+   <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg" value={granoIngresado.cantidadGrano} name="cantidadGrano" type="number" onChange={handleChange}/>
+   </div>
+   <div class="mb-5 space-x-4">
+   <label  class=" mb-2 text-sm font-medium text-gray-900 dark:text-white" htmlFor="lupulo">Lupulo:</label>
+   <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg" value={granoIngresado.nombreLupulo} name="nombreLupulo" type="text" onChange={handleChange}/>
+   <label  class=" mb-2 text-sm font-medium text-gray-900 dark:text-white" htmlFor="lupuloCantidad">Cantidad lupulo:</label>
+   <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg" value={granoIngresado.cantidadLupulo} name="cantidadLupulo" type="number" onChange={handleChange}/>
+   </div>
    <button onClick={submitear} type="submit">Calcular</button>
   </form>
   

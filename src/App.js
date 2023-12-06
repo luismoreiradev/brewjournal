@@ -18,7 +18,7 @@ function App() {
   return (
 
     <BrowserRouter>
-     <Menu/>
+     <Menu />
       <Route path="/" component={Home} exact />
       <Route path="/calculador" component={Calculador} exact />
       <Route path="/Recetas" component={Recetas} exact />
