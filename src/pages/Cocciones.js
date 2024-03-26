@@ -112,7 +112,7 @@ function Cocciones(props) {
                 }
                 if (recetaName === "_id") {
                   return (
-                    <div style={{ position: "relative", top: "100px" }}>
+                    <div className="relative top-24 my-6 mb-10"/* style={{ position: "relative", top: "100px" }}*/>
                       <button
                         onClick={() => {
                           detalles(receta);

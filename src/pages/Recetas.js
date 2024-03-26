@@ -62,17 +62,17 @@ function Recetas() {
             </div>
       
 
-            <div style={{padding:"50px"}}>
+            <div  style={{padding:"50px"}}>
             {mostrar  ? false :
           recetas.map(receta => {
             return Object.entries(receta).map(([recetaName, receta]) => {              
               if (recetaName === "titulo") {                
-                return <div style={{  }} >
+                return <div className='' style={{  }} >
                   <h1> Titulo:<span>{receta}</span></h1>        
               </div>
               } if ( recetaName === "_id") {                                
-                return    <div className="relative top-16" /*style={{position:"relative",top:"100px"}}*/ >           
-                <button onClick={()=>{detalles(receta)} }>detalles</button>
+                return    <div className="relative top-24 my-6 mb-10" /*style={{position:"relative",top:"100px"}}*/ >           
+                <button className='' onClick={()=>{detalles(receta)} }>detalles</button>
                 </div>
               }
                             
